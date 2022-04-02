@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALPHA Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/main.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <input type="checkbox" id="hamburger">
+    <div class="hamburger">
+      <label for="hamburger">
+        <img src="src/images/hamburger.png" alt="hamburger">
+      </label>
+    </div>
+    <a href="#" class="links-logo">
+      <img src="src/images/Logo.png" alt="logo">
+    </a>
+    <div class="links">
+      <ul class="links-subwebs">
+        <li class="subweb1">
+          <a href="#">男款</a>
+        </li>
+        <li class="subweb2">
+          <a href="#">女款</a>
+        </li>
+        <li class="subweb3">
+          <a href="#">最新消息</a>
+        </li>
+        <li class="subweb4">
+          <a href="#">客製商品</a>
+        </li>
+        <li class="subweb5">
+          <a href="#">聯絡我們</a>
+        </li>
+      </ul>
+      <ul class="links-functions">
+        <li>
+          <a href="#">
+            <img src="src/images/search.png" alt="search" class="icon-search">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="src/images/cart.png" alt="cart" class="icon-cart">
+          </a>
+        </li>
+        <li>
+          <input type="checkbox" id="night-mode">
+          <label for="night-mode">
+            <img src="src/images/moon.png" alt="moon" class="icon-moon">
+          </label>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Payment-->
+  <div class="payment-section">
+    <h1>結帳</h1>
+    <!-- Stepper -->
+    <div class="stepper">
+      <div class="step-one">
+        <div class="one"></div>
+        <p>寄送地址</p>
+      </div>
+      <div class="step-two">
+        <div class="two"></div>
+        <p>運送方式</p>
+      </div>
+      <div class="step-three">
+        <div class="three"></div>
+        <p>付款資訊</p>
+      </div>
+    </div>
+
+    <form action="#" class="form-wrapper">
+      <div class="form">
+        <!-- Form 1-->
+        <section class="shipment-address">
+          <h3>寄送地址</h3>
+          <div class="form1">
+            <div class="title">
+              <label for="title">稱謂</label>
+              <select name="title" id="title">
+                <option value="sir">先生</option>
+                <option value="miss">小姐</option>
+              </select>
+            </div>
+            <div class="name">
+              <label for="name">姓名</label>
+              <input type="text" placeholder="請輸入姓名" id="name">
+            </div>
+            <div class="phone">
+              <label for="phone">電話</label>
+              <input type="text" placeholder="請輸入行動電話" id="phone">
+            </div>
+            <div class="email">
+              <label for="email">Email</label>
+              <input type="text" placeholder="請輸入電子郵件" id="email">
+            </div>
+            <div class="county">
+              <label for="county">縣市</label>
+              <select name="county" id="county">
+                <option value="default" selected disabled>請選擇縣市</option>
+                <option value="Taipei">台北市</option>
+                <option value="New Taipei">新北市</option>
+                <option value="Hsinchu">新竹市</option>
+              </select>
+            </div>
+            <div class="address">
+              <label for="address">地址</label>
+              <input type="text" placeholder="請輸入地址" id="address">
+            </div>
+          </div>
+        </section>
+        <!-- Form 2 -->
+        <section class="shipment-ways">
+          <h3>運送方式</h3>
+          <div class="form2">
+            <div class="shipment-way">
+              <input type="radio" name="shipment-way" id="shipment-way1" checked>
+              <div class="description">
+                <label for="shipment-way1">標準運送</label>
+                <label for="shipment-way1">約3-7個工作天</label>
+              </div>
+              <label for="shipment-way1">免費</label>
+            </div>
+            <div class="shipment-way">
+              <input type="radio" name="shipment-way" id="shipment-way2">
+              <div class="description">
+                <label for="shipment-way2">DHL貨運</label>
+                <label for="shipment-way2">48小時內送達</label>
+              </div>
+              <label for="shipment-way2">$500</label>
+            </div>
+          </div>
+        </section>
+        <!-- Form 3 -->
+        <section class="shipment-pay">
+          <h3>付款資訊</h3>
+          <div class="form3">
+            <div class="card-name">
+              <label for="card-name">持卡人姓名</label>
+              <input type="text" id="card-name" placeholder="John Doe">
+            </div>
+            <div class="card-number">
+              <label for="card-number">卡號</label>
+              <input type="text" id="card-number" placeholder="1111 2222 3333 4444">
+            </div>
+            <div class="card-date">
+              <label for="card-date">有效期限</label>
+              <input type="text" id="card-date" placeholder="MM/YY">
+            </div>
+            <div class="card-code">
+              <label for="card-code">CVC/CCV</label>
+              <input type="text" id="card-code" placeholder="123">
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Cart -->
+      <div class="cart">
+        <p class="cart-title">購物籃</p>
+        <div class="products">
+          <!-- Render Product Data Here -->
+        </div>
+        <div class="fee">
+          <p>運費</p>
+          <p class="fee-price">免費</p>
+        </div>
+        <div class="total">
+          <p>小計</p>
+          <p class="total-price">$5,298</p>
+        </div>
+      </div>
+      <!-- Buttons -->
+      <div class="buttons">
+        <button class="previous" type="button"><img src="src/images/previous.png" alt="last step">上一步</button>
+        <button class="next" type="button">下一步<img src="src/images/next.png" alt="next step"></button>
+        <button class="submit" type="submit">確認下單</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="content-wrapper">
+      <a href="#">
+        <img src="src/images/Logo.png" alt="logo">
+      </a>
+      <div class="service">
+        <h3>客戶服務</h3>
+        <ul>
+          <li>
+            <a href="#">運送說明</a>
+          </li>
+          <li>
+            <a href="#">退換貨相關</a>
+          </li>
+          <li>
+            <a href="#">付款資訊</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="about">
+        <h3>關於我們</h3>
+        <ul>
+          <li>
+            <a href="#">品牌故事</a>
+          </li>
+          <li>
+            <a href="#">媒體聯繫</a>
+          </li>
+          <li>
+            <a href="#">Press Kit</a>
+          </li>
+        </ul>
+      </div>
+      <div class="information">
+        <h3>資訊</h3>
+        <ul>
+          <li>
+            <a href="#">隱私權政策</a>
+          </li>
+          <li>
+            <a href="#">Cookie</a>
+          </li>
+          <li>
+            <a href="#">GDPR</a>
+          </li>
+        </ul>
+      </div>
+      <div class="follow">
+        <h3>追蹤ALPHPA Shop</h3>
+        <a href="#">+886 02123-45678</a>
+        <ul class="social-media">
+          <li>
+            <a href="#">
+              <img src="src/images/fb.png" alt="Facebook">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="src/images/ig.png" alt="Instagram">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="src/images/phone.png" alt="Line">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+$main-background: #FFFFFF;
+$main-font: 'Noto Sans TC', sans-serif;
+$main-color: #2A2A2A;
+$stepper-color:#AFB1BD;
+$form-border: #4A4A4A;
+$light-border: #F0F0F5;
+$heavy-border: #E6E6EB;
+$button-background: #F67599;
+$black: #000000;
+$footer-background: #F6F7F8;
+$footer-color: #808080;
+
+@mixin size($width: auto, $height: auto){
+  width: $width;
+  height: $height;
+}
+
+@mixin font-style($font-size: 16px, $font-weight: normal, $color: $main-color) {
+  font-family: $main-font;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+@mixin image-size($width: 24px, $height: 24px) {
+  width: $width;
+  height: $height;
+  object-fit: contain;
+}
+
+@mixin border-style($color, $border-radius, $border-width: 1px) {
+  border: $border-width solid $color;
+  border-radius: $border-radius;
+}
+
+@mixin flex($direction: row, $justify-content: flex-start, $align-items: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin position-absolute( $horizontal, $vertical, $value1, $value2) {
+  position: absolute;
+  #{$horizontal}: $value1;
+  #{$vertical}: $value2;
+}
+
+@mixin hide($method) {
+  @if $method == display {
+    display: none;
+  } @else {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+@mixin stepper-circle($background-color, $border-color) {
+  background-color: $background-color;
+  border: 1px solid $border-color;
+}
+
+
+a, li {
+  text-decoration: none;
+  list-style: none;
+  color: $main-color;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
+
+input, select {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+nav img, footer img {
+  @include image-size;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: $main-background;
+  @include font-style;
+}
+
+nav {
+  height: 56px;
+  @include flex( $align-items: center);
+  input {
+      @include hide(visibility);
+    }
+  .hamburger {
+    img {
+      @include image-size(20px, 15px);
+      margin-left: 17px;
+    }
+  }
+  .links-logo {
+    margin: 16px auto;
+    img {
+      @include image-size(169.83px, 30px);
+    }
+  }
+  .links {
+    @include hide(display);
+    width: 100%;
+    @include position-absolute(top, left, 56px, 0);
+    background-color: $main-background;
+    @include font-style($font-weight: 500);
+    .links-subwebs {
+      li {
+        @include size(90%, 72px);
+        margin: 0 auto;
+        border-bottom: 2px solid rgba($main-color, 0.1);
+        @include flex(row, center, center);
+      }
+    }
+    .links-functions {
+      width: 80%;
+      margin: 0 auto;
+      @include flex( $justify-content: space-evenly);
+    }
+  }
+}
+
+#hamburger:checked ~ .links {
+  display: block;
+  z-index: 1;
+}
+
+
+.payment-section {
+  padding: 15px;
+  h1 {
+    @include font-style(24px, 700);
+  }
+  .stepper {
+    @include flex($justify-content: space-between);
+    div {
+      position: relative;
+      div {
+        position: relative;
+         @include size(32px, 32px);
+        border-radius: 50%;
+        @include stepper-circle(transparent, $stepper-color);
+      } 
+      //// use ::before to set content in the circle 
+      $content: ( "one": 1, "two": 2, "three": 3 );
+      @each $item, $value in $content {
+       .#{$item}::before {
+         content: "#{$value}";
+         color: $stepper-color;
+        // position reference point: .one, .two, .three (div > div)
+         @include position-absolute( top, left, 50%, 50% ); 
+         transform: translate(-50%, -50%);
+        }
+      }
+       //// use ::after to create lines between circles
+      .one::after, .two::after {
+        content: "";
+        @include size(60px, 1px);
+        // position reference point: .step-one, .step-two
+        // 優化方向：現在在寬度255px下線會與圓圈重疊(電腦版：375-483px)，感覺可以針對這些區間用@if做一些長短設定
+        @function left-spacing() {
+        $new-space: calc((100vw - 15*2px - 32*3px - 60*2px)/4 + 32px);
+        @return $new-space 
+        };
+        @include position-absolute( top, left, 16px, left-spacing());
+        background-color: $light-border;
+      }
+      p {
+      @include hide(display);
+      }
+    }    
+  } 
+}
+
+// control stepper state
+.stepper {
+  div.active {
+    & .one, & .two, & .three {
+      @include stepper-circle(transparent, $main-color);
+      &::before {
+        color: $main-color;
+      }
+      &::after {
+        background-color: $black;
+      }
+    }
+    & .one {
+      @include stepper-circle($main-color, $main-color);
+      &::before {
+        color: $main-background;
+      }
+    }
+    & div ~ p {
+      color: $main-color;
+    }
+  }
+
+  div.done {
+    & .one, & .two, & .three  {
+      @include stepper-circle($main-color, $main-color);
+      &::before {
+        content: "\2713";
+        color: $main-background;
+      }
+    }
+  }
+}
+
+// set shared styles
+form {
+  h3 {
+    @include font-style(24px, 700);
+    margin: 24px 0; 
+  }
+  input {
+    box-sizing: border-box;
+    @include size(100%, 40px);
+    padding-left: 18px;
+    @include border-style($form-border, 4px);
+  }
+  select {
+    @extend input;
+    background-color: transparent;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    @include font-style(12px, 700, $footer-color);
+  }  
+}
+
+// set individual form style
+.form1 {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 30px 24px;
+  .phone, .email, .county, .address {
+    grid-column: 1 / 3;
+  }
+  .title, .county {
+    position: relative;
+    z-index: 0;
+    &::before {
+      content: "";
+        position: absolute;
+        bottom: 20px;
+        right: 15px;
+        border-top: 5px solid $main-color;
+        border-left: 5px solid $main-background;
+        border-right: 5px solid $main-background;
+        z-index: -1;
+    }
+  }
+}
+
+.form2 {
+  .shipment-way {
+    position: relative;
+    @include size(100%, 60px);
+    margin-bottom: 24px;
+    @include flex($align-items:center);
+    input {
+      @include size(20px, 20px);
+      margin-left: 20px;
+      padding-left: 0;
+      @include border-style($main-color, 50%, 1px);
+      &::before {
+        content: "";
+        @include position-absolute(top, left, 0, 0);
+        @include size(100%, 60px);
+        @include border-style($light-border, 4px);
+      }
+    }
+    // set input:checked effect
+    input:checked {
+      border-width: 8px;
+      &::before {
+        border-color: $main-color;
+      }
+    }
+    .description {
+      height: inherit;
+      margin-left: 20px;
+      padding-top: 11px;
+      label {
+        @include font-style(14px, normal, $black);
+      }
+      label ~ label {
+        font-size: 12px;
+      }
+    }
+    & > label {
+      @include font-style(12px, normal, $black);
+      @include position-absolute(top, right, 11px, 34px);
+    }
+  }
+}
+
+.form3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 24px;
+  .card-name, .card-number {
+    grid-column: 1 / 3;
+  }
+}
+
+.cart {
+  @include size(100%, auto);
+  margin-top: 32px;
+  padding: 0  16px;
+  @include border-style($light-border, 8px, 1px);
+  box-sizing: border-box;
+  &-title {
+    @include hide(display);
+  }
+  .product {
+    @include flex($justify-content: space-between, $align-items: center);
+    margin-bottom: 10px;
+    img {
+      @include size(100px, 100px);
+    }
+    .product-info {
+      @include flex(column, center, flex-end);
+      &-amount {
+        width: 116px;
+        @include font-style(14px, 500, $black);
+        @include flex(row, space-between, center);
+        div {
+          position: relative;
+          @include size(26px, 26px);
+          background-color: $light-border;
+          border-radius: 50%;
+          @include flex(row, center, center);
+          cursor: pointer;
+          img {
+            @include image-size(50%, 50%);
+          }
+        }
+      }
+      &-price {
+        @include font-style(16px, 700, $black);
+      }
+    }
+  }
+  .fee, .total {
+    @include size(100%, 52px);
+    @include flex(row, space-between, center);
+    border-top: 1px solid $light-border;
+    p ~ p {
+      @include font-style(14px, 700, $black);
+    }
+  }
+}
+
+// set general button style
+.buttons {
+  @include size(100%, 110px);
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 1px solid $heavy-border;
+  @include flex($justify-content: space-between);
+  button {
+    @include size(156px, 46px);
+    background-color: $button-background;
+    border: none;
+    border-radius: 8px;
+    color: $main-background;
+    @include flex(row, space-evenly, center);
+    cursor: pointer;
+    img {
+      @include image-size(20.5px, 9px);
+    }
+  }
+  .previous {
+    background-color: transparent;
+    color: $black;
+  }
+}
+
+// control contents shown in .form-wrapper
+.form-wrapper.page-one {
+  & .shipment-ways, & .shipment-pay {
+    @include hide(display);
+  }
+  & .buttons {
+    & .previous,
+    & .submit {
+      @include hide(display);
+    }
+    
+    & .next {
+      width: 100%;
+      justify-content: center;
+    
+      img {
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+.form-wrapper.page-two {
+  & .shipment-address,
+  & .shipment-pay {
+    @include hide(display);
+  }
+  & .buttons {
+    & .submit {
+      @include hide(display);
+    }
+  }
+}
+
+.form-wrapper.page-three {
+  & .shipment-address,
+  & .shipment-ways {
+    @include hide(display);
+  }
+  & .buttons {
+    & .next {
+      @include hide(display);
+    }
+  }
+}
+
+footer {
+  @include hide(display);
+}
+
+@media screen and (min-width:375px) {
+
+  nav {
+    height: 60px;
+    .hamburger {
+      @include hide(display);
+    }
+    .links-logo {
+      @include position-absolute(top, left,0 ,50%);
+      transform: translate(-50%);
+      z-index: 1;
+    }
+    .links {
+      // 優化方向：改html，使用grid排版
+      position: relative;
+      top: 0;
+      display: flex;
+      .links-subwebs {
+        @include flex;
+        width: 35%;
+        margin-right: auto;
+        li {
+          @include size(fit-content, inherit);
+          border: none;
+          @include flex($align-items: center);
+        }
+      }
+      .links-functions {
+        width: 15%;
+        margin-right: 10px;
+        @include flex(row, space-between, center); 
+      }
+    }
+  }
+
+  .payment-section {
+    margin-top: 100px;
+    width: 45%;
+    .stepper {
+      div {
+        @include flex($align-items: center);
+        p {
+          display: block;
+          margin-left: 10px;
+          color: $stepper-color; 
+        }
+        .one::after, .two::after {
+          @function left-spacing() {
+        $new-space: calc((45vw - 15*2px - 32*3px - 60*2px - 64*3px - 10*3px )/4 + 42px + 64px);
+        @return $new-space 
+        };
+          @include position-absolute( top, left, 16px, left-spacing());
+        }
+      }
+    }
+  }
+
+  .form1 {
+    grid-template-columns: repeat(6, 1fr);
+    .title, .county {
+      grid-column: 1 / 4;
+    }
+    .name, .address {
+      grid-column: 4 / 12;
+    }
+    .phone {
+      grid-column: 1 / 6;
+    }
+    .email {
+      grid-column: 6 / 12;
+    }
+  }
+
+  .form2 {
+    margin-bottom: 144px;
+  }
+
+  .form3 {
+    .card-name, .card-number {
+      width: 70%;
+    }
+  }
+
+  .cart {
+    @include position-absolute(top, right, 226px, 15px);
+    width: 45%;
+    padding: 32px 24px;
+    p {
+      display: block;
+      @include font-style(18px, 700);
+    }
+    .product {
+      position: relative;
+      justify-content: flex-start;
+      .product-info {
+        align-items: flex-start;
+        margin-left: 21px;
+        &-price {
+          @include position-absolute( top, right, 18px, 0);
+        }
+      }
+    }
+  }
+
+  footer {
+    display: block;
+    @include size(100%, 284px);
+    background-color: $footer-background;
+    padding-top: 64px;
+    .content-wrapper {
+      @include flex($justify-content: space-evenly);
+       a {
+         align-self: center;
+        img {
+        @include image-size(169.83px, 30px);
+        }
+      }
+      div {
+        h3 {
+          @include font-style(24px, 700);
+        }
+        a {
+          @include font-style(16px, 400, $footer-color);
+        }
+      }
+      .follow > .social-media {
+        width: 50%;
+        @include flex($justify-content: space-between);
+        img {
+          @include image-size(24px, 24px);
+        }
+      }
+    }
+  }
+}
