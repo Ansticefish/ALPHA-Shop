@@ -65,5 +65,5 @@
 
 </br>
 
-5. 使用Live Server打開index.html，就可以看見網頁了！
+5. 打開index.html，就可以看見網頁了！
 
