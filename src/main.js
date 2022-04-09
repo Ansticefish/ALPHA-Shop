@@ -191,4 +191,7 @@ const utility = {
 
 controller.setSite()
 
-
+const modeSwitcher = document.querySelector('#night-mode') 
+modeSwitcher.addEventListener('change', (event) => {
+  document.documentElement.classList.toggle('dark-mode')
+})

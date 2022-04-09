@@ -1,14 +1,157 @@
-$main-background: #FFFFFF;
+// general color
+$main-background: var(--background-color);
 $main-font: 'Noto Sans TC', sans-serif;
-$main-color: #2A2A2A;
-$stepper-color:#AFB1BD;
-$form-border: #4A4A4A;
-$light-border: #F0F0F5;
-$heavy-border: #E6E6EB;
-$button-background: #F67599;
-$black: #000000;
-$footer-background: #F6F7F8;
-$footer-color: #808080;
+$main-color: var(--main-color);
+// image links
+$logo-image: var(--logo-image);
+$search-image: var(--search-image);
+$cart-image: var(--cart-image);
+$moon-image: var(--moon-image);
+$next-arrow: var(--next-arrow);
+$previous-arrow: var(--previous-arrow);
+// stepper color
+$step-undone: var(--step-undone);
+$progress-undone: var(--progress-undone);
+$step-active: var(--step-active);
+$progress-active: var(--progress-active);
+$circle-one-active: var(--circle-one-active);
+$number-one-active: var(--number-one-active);
+$step-done: var(--step-done);
+$number-done: var(--number-done);
+$progress-done: var(--progress-done);
+$circle-done: var(--circle-done);
+// form color
+$input-border: var(--input-border);
+$input-color: var(--input-color);
+$label-color: var(--label-color);
+$radio-border-unchecked: var(--radio-border-unchecked);
+$radio-border-checked: var(--radio-border-checked);
+$radio-circle-unchecked-border: var(--radio-circle-unchecked-border);
+$radio-circle-unchecked-bg: var(--radio-circle-unchecked-bg);
+$radio-circle-checked-border: var(--radio-circle-checked-border);
+$radio-circle-checked-bg: var(--radio-circle-checked-bg);
+$radio-color: var(--radio-color);
+$radio-sub-color: var(--radio-sub-color);
+// button color
+$buttons-border: var(--buttons-border);
+$next-bg: var(--next-bg);
+$next-color: var(--next-color);
+$previous-color: var(--previous-color);
+// cart color
+$cart-border: var(--cart-border);
+$cart-bg: var(--cart-bg);
+$cart-light-color: var(--cart-light-color);
+$cart-heavy-color: var(--cart-heavy-color);
+$amount-circle: var(--amount-circle);
+// footer color
+$footer-background: var(--footer-background);
+$footer-title: var(--footer-title);
+$footer-color: var(--footer-color);
+
+:root {
+  // general color
+  --background-color: #ffffff;
+  --main-color: #2a2a2a;
+  // image links
+  --logo-image: url("/src/images/Logo.png");
+  --search-image: url("/src/images/search.png");
+  --cart-image: url("/src/images/cart.png");
+  --moon-image: url("/src/images/moon.png");
+  --next-arrow: url("/src/images/next.png");
+  --previous-arrow: url("/src/images/previous.png");
+  // stepper color
+  --step-undone: #AFB1BD;
+  --progress-undone: #F0F0F5;
+  --step-active: #2A2A2A;
+  --progress-active: #000000;
+  --circle-one-active: #2A2A2A;
+  --number-one-active: #FFFFFF;
+  --step-done: #2A2A2A;
+  --number-done: #FFFFFF;
+  --progress-done: #000000;
+  --circle-done: #333333;
+  // form color
+  --input-border: #4A4A4A;
+  --input-color: #999999;
+  --label-color: #808080;
+  --radio-border-unchecked: #F0F0F5;
+  --radio-border-checked: #2A2A2A;
+  --radio-circle-unchecked-border: #222222;
+  --radio-circle-unchecked-bg: #FFFFFF;
+  --radio-circle-checked-border: #000000;
+  --radio-circle-checked-bg: #FFFFFF;
+  --radio-color: #000000;
+  --radio-sub-color: #000000;
+  // button color
+  --buttons-border: #E6E6EB;
+  --next-bg: #F67599;
+  --next-color: #FFFFFF;
+  --previous-color: #000000;
+  // cart color
+  --cart-border: #F0F0F5;
+  --cart-bg: #FFFFFF;
+  --cart-light-color: #2A2A2A;
+  --cart-heavy-color: #000000;
+  --amount-circle: #F0F0F5;
+  // footer color
+  --footer-background: #F6F7F8;
+  --footer-title: #2A2A2A;
+  --footer-color: #808080;
+}
+
+
+.dark-mode {
+  // general color
+  --background-color: #121212;
+  --main-color: #FFFFFF;
+  // image links
+  --logo-image: url("/src/images/dark_Logo.png");
+  --search-image: url("/src/images/dark_search.png");
+  --cart-image: url("/src/images/dark_cart.png");
+  --moon-image: url("/src/images/dark_moon.png");
+  --next-arrow: url("/src/images/next.png");
+  --previous-arrow: url("/src/images/dark_previous.png");
+  // stepper color
+  --step-undone: #FFFFFF66;
+  --progress-undone: #F0F0F566;
+  --step-active: #FFFFFF;
+  --progress-active: #F0F0F5;
+  --circle-one-active: #333333;
+  --number-one-active: #FFFFFF;
+  --step-done: #FFFFFF;
+  --number-done: #FFFFFF;
+  --progress-done: #FFFFFF;
+  --circle-done: #333333;
+  // form color
+  --input-border: #5E5E5E;
+  --input-color: #FFFFFF66;
+  --label-color: #FFFFFF66;
+  --radio-border-unchecked: #5E5E5E;
+  --radio-border-checked: #FFFFFF;
+  --radio-circle-unchecked-border: #333333;
+  --radio-circle-unchecked-bg: #333333;
+  --radio-circle-checked-border:
+  #333333; 
+  --radio-circle-checked-bg: #FFFFFF;
+  --radio-color: #FFFFFF;
+  --radio-sub-color: #FFFFFF66;
+  // button color
+  --buttons-border: #FFFFFF33;
+  --next-bg: #F67599;
+  --next-color: #FFFFFF;
+  --previous-color: #FFFFFF;
+  // cart color
+  --cart-border: #FFFFFF33;
+  --cart-bg: #383838;
+  --cart-light-color: #FFFFFF;
+  --cart-heavy-color: #FFFFFF;
+  --amount-circle: #F0F0F5;
+  // footer color
+  --footer-background: #333333;
+  --footer-title: #FFFFFF;
+  --footer-color: #FFFFFF99;
+}
+
 
 @mixin size($width: auto, $height: auto){
   width: $width;
@@ -26,6 +169,13 @@ $footer-color: #808080;
   width: $width;
   height: $height;
   object-fit: contain;
+}
+
+@mixin background-image($link,$width:24px, $height:24px, $size: cover){
+  width: $width;
+  height: $height;
+  background-image: $link;
+  background-size: $size;
 }
 
 @mixin border-style($color, $border-radius, $border-width: 1px) {
@@ -74,10 +224,17 @@ ul {
 input, select {
   -webkit-appearance: none;
   cursor: pointer;
+  color: $input-color;
+  background-color: transparent;
+}
+
+::placeholder {
+  color: $input-color;
 }
 
 nav img, footer img {
   @include image-size;
+  cursor: pointer;
 }
 
 
@@ -89,6 +246,7 @@ html, body {
   @include font-style;
 }
 
+///// NAV BAR  /////
 nav {
   height: 56px;
   @include flex( $align-items: center);
@@ -103,28 +261,39 @@ nav {
   }
   .links-logo {
     margin: 16px auto;
-    img {
-      @include image-size(169.83px, 30px);
+    div {
+      @include background-image($logo-image, 169.83px, 30px);
     }
   }
-  .links {
-    @include hide(display);
-    width: 100%;
-    @include position-absolute(top, left, 56px, 0);
-    background-color: $main-background;
-    @include font-style($font-weight: 500);
-    .links-subwebs {
-      li {
-        @include size(90%, 72px);
-        margin: 0 auto;
-        border-bottom: 2px solid rgba($main-color, 0.1);
-        @include flex(row, center, center);
-      }
-    }
-    .links-functions {
-      width: 80%;
+}
+
+.links {
+  @include hide(display);
+  width: 100%;
+  @include position-absolute(top, left, 56px, 0);
+  background-color: $main-background;
+  @include font-style($font-weight: 500);
+  .links-subwebs {
+    li {
+      @include size(90%, 72px);
       margin: 0 auto;
-      @include flex( $justify-content: space-evenly);
+      border-bottom: 2px solid rgba($main-color, 0.1);
+      @include flex(row, center, center);
+    }
+  }
+  .links-functions {
+    width: 80%;
+    margin: 0 auto 30px;
+    @include flex($justify-content: space-evenly);
+    .search-button {
+      @include background-image($search-image);
+    }
+    .cart-button {
+      @include background-image($cart-image);
+    }
+    .moon-button {
+      @include background-image($moon-image);
+      cursor:pointer;
     }
   }
 }
@@ -134,11 +303,11 @@ nav {
   z-index: 1;
 }
 
-
+///// PAYMENT SECTION: STEPPER  /////
 .payment-section {
   padding: 15px;
   h1 {
-    @include font-style(24px, 700);
+    @include font-style(32px, 700);
   }
   .stepper {
     @include flex($justify-content: space-between);
@@ -146,34 +315,10 @@ nav {
       position: relative;
       div {
         position: relative;
-         @include size(32px, 32px);
+        @include size(32px, 32px);
         border-radius: 50%;
-        @include stepper-circle(transparent, $stepper-color);
+        @include stepper-circle(transparent, $step-undone);
       } 
-      //// use ::before to set content in the circle 
-      $content: ( "one": 1, "two": 2, "three": 3 );
-      @each $item, $value in $content {
-       .#{$item}::before {
-         content: "#{$value}";
-         color: $stepper-color;
-        // position reference point: .one, .two, .three (div > div)
-         @include position-absolute( top, left, 50%, 50% ); 
-         transform: translate(-50%, -50%);
-        }
-      }
-       //// use ::after to create lines between circles
-      .one::after, .two::after {
-        content: "";
-        @include size(60px, 1px);
-        // position reference point: .step-one, .step-two
-        // 優化方向：現在在寬度255px下線會與圓圈重疊(電腦版：375-483px)，感覺可以針對這些區間用@if做一些長短設定
-        @function left-spacing() {
-        $new-space: calc((100vw - 15*2px - 32*3px - 60*2px)/4 + 32px);
-        @return $new-space 
-        };
-        @include position-absolute( top, left, 16px, left-spacing());
-        background-color: $light-border;
-      }
       p {
       @include hide(display);
       }
@@ -181,40 +326,74 @@ nav {
   } 
 }
 
+// set content in the circle 
+$content: ("one": 1, "two": 2, "three": 3);
+@each $item,
+$value in $content {
+  .#{$item}::before {
+    content: "#{$value}";
+    color: $step-undone;
+    // position reference point: .one, .two, .three (div > div)
+    @include position-absolute(top, left, 50%, 50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// create lines between circles
+.one::after,
+.two::after {
+  content: "";
+  @include size(60px, 1px);
+  // position reference point: .step-one, .step-two
+  // 優化方向：現在在寬度255px下線會與圓圈重疊(電腦版：375-483px)，感覺可以針對這些區間用@if做一些長短設定
+  @function left-spacing() {
+    $new-space: calc((100vw - 15*2px - 32*3px - 60*2px)/4 + 32px);
+    @return $new-space
+  };
+  @include position-absolute(top, left, 16px, left-spacing());
+  background-color: $progress-undone;
+}
+
+
 // control stepper state
 .stepper {
   div.active {
     & .one, & .two, & .three {
-      @include stepper-circle(transparent, $main-color);
+      @include stepper-circle(transparent, $step-active);
       &::before {
-        color: $main-color;
+        color: $step-active;
       }
       &::after {
-        background-color: $black;
+        background-color: $progress-active;
       }
     }
     & .one {
-      @include stepper-circle($main-color, $main-color);
+      @include stepper-circle($circle-one-active, $circle-one-active);
       &::before {
-        color: $main-background;
+        color: $number-one-active;
       }
     }
     & div ~ p {
-      color: $main-color;
+      color: $step-active;
     }
   }
 
   div.done {
     & .one, & .two, & .three  {
-      @include stepper-circle($main-color, $main-color);
+      @include stepper-circle($circle-done, $circle-done);
+      color: $step-done;
       &::before {
         content: "\2713";
-        color: $main-background;
+        color: $number-done;
+      }
+      &::after {
+        color: $progress-done;
       }
     }
   }
 }
 
+///// PAYMENT SECTION: FORM  /////
 // set shared styles
 form {
   h3 {
@@ -225,16 +404,15 @@ form {
     box-sizing: border-box;
     @include size(100%, 40px);
     padding-left: 18px;
-    @include border-style($form-border, 4px);
+    @include border-style($input-border, 4px);
   }
   select {
     @extend input;
-    background-color: transparent;
   }
   label {
     display: block;
     margin-bottom: 8px;
-    @include font-style(12px, 700, $footer-color);
+    @include font-style(12px, 700, $label-color);
   }  
 }
 
@@ -254,7 +432,7 @@ form {
         position: absolute;
         bottom: 20px;
         right: 15px;
-        border-top: 5px solid $main-color;
+        border-top: 5px solid $input-color;
         border-left: 5px solid $main-background;
         border-right: 5px solid $main-background;
         z-index: -1;
@@ -272,19 +450,21 @@ form {
       @include size(20px, 20px);
       margin-left: 20px;
       padding-left: 0;
-      @include border-style($main-color, 50%, 1px);
+      @include border-style($radio-circle-unchecked-border, 50%, 1px);
+      background: $radio-circle-unchecked-bg;
       &::before {
         content: "";
         @include position-absolute(top, left, 0, 0);
         @include size(100%, 60px);
-        @include border-style($light-border, 4px);
+        @include border-style($radio-border-unchecked, 4px);
       }
     }
     // set input:checked effect
     input:checked {
-      border-width: 8px;
+      border-width: 6px;
+      background: $radio-circle-checked-bg;
       &::before {
-        border-color: $main-color;
+        border-color: $radio-circle-checked-border;
       }
     }
     .description {
@@ -292,14 +472,15 @@ form {
       margin-left: 20px;
       padding-top: 11px;
       label {
-        @include font-style(14px, normal, $black);
+        @include font-style(14px, normal, $radio-color);
       }
       label ~ label {
         font-size: 12px;
+        color: $radio-sub-color;
       }
     }
     & > label {
-      @include font-style(12px, normal, $black);
+      @include font-style(12px, normal, $radio-color);
       @include position-absolute(top, right, 11px, 34px);
     }
   }
@@ -314,11 +495,13 @@ form {
   }
 }
 
+///// PAYMENT SECTION: CART  /////
 .cart {
   @include size(100%, auto);
   margin-top: 32px;
   padding: 0  16px;
-  @include border-style($light-border, 8px, 1px);
+  @include border-style($cart-border, 8px, 1px);
+  background-color: $cart-bg;
   box-sizing: border-box;
   &-title {
     @include hide(display);
@@ -333,12 +516,12 @@ form {
       @include flex(column, center, flex-end);
       &-amount {
         width: 116px;
-        @include font-style(14px, 500, $black);
+        @include font-style(14px, 500, $cart-heavy-color);
         @include flex(row, space-between, center);
         div {
           position: relative;
           @include size(26px, 26px);
-          background-color: $light-border;
+          background-color: $amount-circle;
           border-radius: 50%;
           @include flex(row, center, center);
           cursor: pointer;
@@ -348,46 +531,50 @@ form {
         }
       }
       &-price {
-        @include font-style(16px, 700, $black);
+        @include font-style(16px, 700, $cart-heavy-color);
       }
     }
   }
   .fee, .total {
     @include size(100%, 52px);
     @include flex(row, space-between, center);
-    border-top: 1px solid $light-border;
+    border-top: 1px solid $cart-border;
     p ~ p {
-      @include font-style(14px, 700, $black);
+      @include font-style(14px, 700, $cart-heavy-color);
     }
   }
 }
 
+///// PAYMENT SECTION: BUTTONS  /////
 // set general button style
 .buttons {
   @include size(100%, 110px);
   margin-top: 32px;
   padding: 24px 0;
-  border-top: 1px solid $heavy-border;
+  border-top: 1px solid $buttons-border;
   @include flex($justify-content: space-between);
   button {
     @include size(156px, 46px);
-    background-color: $button-background;
+    background-color: $next-bg;
     border: none;
     border-radius: 8px;
-    color: $main-background;
+    color: $next-color;
     @include flex(row, space-evenly, center);
     cursor: pointer;
-    img {
-      @include image-size(20.5px, 9px);
+    .previous-arrow {
+      @include background-image($previous-arrow, 20.5px, 9px, contain);
+    }
+    .next-arrow {
+      @include background-image($next-arrow, 20.5px, 9px, contain);
     }
   }
   .previous {
     background-color: transparent;
-    color: $black;
+    color: $previous-color;
   }
 }
 
-// control contents shown in .form-wrapper
+///// PAYMENT SECTION: CONTENT CONTROL CLASS (control contents shown in .form-wrapper)  /////
 .form-wrapper.page-one {
   & .shipment-ways, & .shipment-pay {
     @include hide(display);
@@ -402,7 +589,7 @@ form {
       width: 100%;
       justify-content: center;
     
-      img {
+      div {
         margin-left: 12px;
       }
     }
@@ -433,12 +620,15 @@ form {
   }
 }
 
+/////  FOOTER  /////
 footer {
   @include hide(display);
 }
 
-@media screen and (min-width:375px) {
 
+/////////       COMPUTER LAYOUT     /////////
+@media screen and (min-width:375px) {
+  ///// NAV BAR /////
   nav {
     height: 60px;
     .hamburger {
@@ -449,29 +639,33 @@ footer {
       transform: translate(-50%);
       z-index: 1;
     }
-    .links {
-      // 優化方向：改html，使用grid排版
-      position: relative;
-      top: 0;
-      display: flex;
-      .links-subwebs {
-        @include flex;
-        width: 35%;
-        margin-right: auto;
-        li {
-          @include size(fit-content, inherit);
-          border: none;
-          @include flex($align-items: center);
-        }
-      }
-      .links-functions {
-        width: 15%;
-        margin-right: 10px;
-        @include flex(row, space-between, center); 
-      }
-    }
   }
 
+  .links {
+    // 優化方向：改html，使用grid排版
+    position: relative;
+    top: 0;
+    display: flex;
+  
+    .links-subwebs {
+      @include flex;
+      width: 35%;
+      margin-right: auto;
+      li {
+        @include size(fit-content, inherit);
+        border: none;
+        @include flex($align-items: center);
+      }
+    }
+  
+    .links-functions {
+      width: 15%;
+      margin: 0 10px 0 0;
+      @include flex(row, space-between, center);
+    }
+  }
+  
+  ///// PAYMENT SECTION /////
   .payment-section {
     margin-top: 100px;
     width: 45%;
@@ -481,7 +675,7 @@ footer {
         p {
           display: block;
           margin-left: 10px;
-          color: $stepper-color; 
+          color: $step-undone; 
         }
         .one::after, .two::after {
           @function left-spacing() {
@@ -540,7 +734,8 @@ footer {
       }
     }
   }
-
+  
+  ///// FOOTER /////
   footer {
     display: block;
     @include size(100%, 284px);
@@ -550,13 +745,13 @@ footer {
       @include flex($justify-content: space-evenly);
        a {
          align-self: center;
-        img {
-        @include image-size(169.83px, 30px);
+        div {
+        @include background-image($logo-image, 169.83px, 30px);
         }
       }
       div {
         h3 {
-          @include font-style(24px, 700);
+          @include font-style(24px, 700, $footer-title);
         }
         a {
           @include font-style(16px, 400, $footer-color);
